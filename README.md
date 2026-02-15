@@ -3,8 +3,7 @@
 > **Speak to the AI, and watch it come alive.**
 > Real-time 3D AI Interface with Voice Interaction, Emotion Analysis, and Dynamic Particle Effects.
 
-![Project Banner]<img width="1919" height="909" alt="스크린샷 2026-02-16 002726" src="https://github.com/user-attachments/assets/cb1704fe-ca33-485b-b26d-28bc3e1629d8" />)
-*(Screenshots coming soon)*
+<img width="1919" height="909" alt="스크린샷 2026-02-16 002726" src="https://github.com/user-attachments/assets/cb1704fe-ca33-485b-b26d-28bc3e1629d8" />
 
 ## ✨ Key Features
 
