@@ -104,4 +104,5 @@ AGI_human_interface/
 
 ## 📜 License
 
-MIT License - feel free to use and modify for your own projects.
+MIT License - feel free to use and modify for yo<img width="1919" height="909" alt="스크린샷 2026-02-16 002726" src="https://github.com/user-attachments/assets/cb1704fe-ca33-485b-b26d-28bc3e1629d8" />
+ur own projects.
