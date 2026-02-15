@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Voice-Reactive 3D AI Visualizer - 음성에 반응하는 인간 형상 파티클 AI 인터페이스" />
+  <title>Voice-Reactive 3D AI Visualizer</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- 매트릭스 배경 -->
+  <div id="matrix-bg"></div>
+
+  <!-- Three.js 3D 씬 컨테이너 -->
+  <div id="scene-container"></div>
+
+  <!-- 컨트롤 패널 -->
+  <div id="control-panel">
+    <div class="panel-header">
+      <div class="status-dot" id="status-dot"></div>
+      <span class="status-text" id="status-text">대기 중</span>
+    </div>
+
+    <button id="btn-mic" class="btn-primary" type="button">
+      <span class="btn-icon">🎤</span>
+      <span class="btn-label">마이크 시작</span>
+    </button>
+
+    <div class="audio-level-container" id="audio-level-container" style="display: none;">
+      <div class="audio-level-bar" id="audio-level-bar"></div>
+      <span class="audio-level-label">음성 입력</span>
+    </div>
+
+    <div class="emotion-display" id="emotion-display" style="display: none;">
+      <span class="emotion-label">감정:</span>
+      <span class="emotion-badge" id="emotion-badge">neutral</span>
+      <span class="emotion-intensity" id="emotion-intensity">0.5</span>
+    </div>
+  </div>
+
+  <!-- 대화 내역 패널 -->
+  <div id="chat-panel">
+    <div class="panel-header">
+      <span class="panel-title">💬 대화 내역</span>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-placeholder">마이크를 시작하면 대화가 시작됩니다...</div>
+    </div>
+  </div>
+
+  <!-- 로딩 오버레이 -->
+  <div id="loading-overlay" style="display: none;">
+    <div class="loading-ring"></div>
+    <p class="loading-text">AI 시스템 초기화 중...</p>
+  </div>
+
+  <!-- 에러 토스트 -->
+  <div id="error-toast" class="toast" style="display: none;"></div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
