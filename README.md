@@ -1,85 +1,107 @@
 # 🎯 Voice-Reactive 3D AI Visualizer
 
-> 사용자의 음성에 실시간 반응하는 인간 형상 파티클 기반 3D AI 인터페이스
+> **Speak to the AI, and watch it come alive.**
+> Real-time 3D AI Interface with Voice Interaction, Emotion Analysis, and Dynamic Particle Effects.
 
-## ✨ 주요 기능
+![Project Banner](https://via.placeholder.com/1200x600.png?text=Voice-Reactive+3D+AI+Visualizer)
+*(Screenshots coming soon)*
 
-- **인간 형상 파티클 시스템**: 이미지 기반 얼굴 파티클 10,000~30,000개
-- **실시간 오디오 반응**: Web Audio API로 저음/중음/고음 분리, 60fps 시각화
-- **AI 감정 분석**: Whisper STT → Ollama LLM → 7가지 감정별 색상/형태 전환
-- **사이버펑크 디자인**: 매트릭스 배경, Bloom 후처리, 글래스모피즘 UI
+## ✨ Key Features
 
-## 📋 사전 요구사항
+- **🧠 3D Particle Brain/Face**: Generates a 3D face model (`.gltf`) using 10,000+ interactive particles.
+- **🗣️ Full Voice Conversation**:
+  - **STT (Speech-to-Text)**: OpenAI Whisper for fast & accurate voice recognition.
+  - **LLM (Large Language Model)**: Local Ollama (Llama3) for intelligent, empathetic responses.
+  - **TTS (Text-to-Speech)**: Edge-TTS for natural-sounding AI voice output.
+- **🎭 Dynamic Visual States**:
+  - **Idle**: Subtle breathing animation.
+  - **Listening**: Particles vibrate with anticipation.
+  - **Thinking**: **Electric Blue** swirls and high-speed orbital rotation.
+  - **Speaking**: Particles **expand** and glow rhythmically with voice amplitude.
+- **🎨 Real-time Emotion Analysis**: Analysis of conversation context triggers 7 different color themes (Happy, Sad, Angry, Excited, etc.).
+- **💎 Cyberpunk Aesthetic**: Matrix-style rain background, Bloom post-processing, and glassmorphism UI.
 
-| 도구 | 최소 버전 | 확인 명령어 |
-|------|----------|------------|
-| Node.js | 18+ | `node -v` |
-| Python | 3.10+ | `py --version` |
-| Ollama | 최신 | `ollama list` |
+## 🛠️ Tech Stack
 
-## 🚀 빠른 시작
+### Frontend
+- **Framework**: React + Vite (TypeScript)
+- **3D Graphics**: Three.js, React Three Fiber
+- **Effects**: Post-processing (Unreal Bloom), GLSL Shaders
+- **Styling**: CSS Modules, Cyberpunk Theme
 
+### Backend
+- **Server**: Python Flask
+- **AI Models**: 
+  - **LLM**: Ollama (Llama 3 recommended)
+  - **STT**: OpenAI Whisper (Base model)
+  - **TTS**: Edge-TTS
+- **Analysis**: NLTK (VADER Sentiment Analysis)
+
+## 🚀 Quick Start
+
+### Prerequisites
+- **Node.js** (v18+)
+- **Python** (v3.10+)
+- **Ollama** installed and running (`ollama serve`)
+
+### One-Click Run (Windows)
 ```batch
-# 1. 프로젝트 클론 후 start.bat 실행 (자동 설치 포함)
 start.bat
 ```
+*Automatically installs dependencies and launches both frontend and backend.*
 
-### 수동 설치
+### Manual Installation
 
-```batch
-# 프론트엔드
+#### 1. Backend Setup
+```bash
+cd backend
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# Mac/Linux
+source venv/bin/activate
+
+pip install -r requirements.txt
+python app.py
+```
+
+#### 2. Frontend Setup
+```bash
 cd frontend
 npm install
 npm run dev
-
-# 백엔드 (새 터미널)
-cd backend
-py -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-py app.py
 ```
 
-## 🎮 사용 방법
+## 🎮 Usage Guide
 
-1. `http://localhost:5173` 접속
-2. **마이크 시작** 버튼 클릭
-3. 자유롭게 말하기 → 5초마다 AI가 감정 분석
-4. 파티클이 감정에 따라 색상/형태 변환!
+1. Open `http://localhost:5173` in your browser.
+2. Click the **"Start Mental Check"** (Microphone) icon.
+3. Allow microphone access.
+4. **Speak** to the AI.
+   - *Example: "Hello, who are you?", "I feel sad today..."*
+5. Watch the 3D model react:
+   - **Listening**: Fast, jittery particles.
+   - **Thinking**: Purple/Blue swirl.
+   - **Speaking**: Bright, expanding face with audio response.
 
-## 🎨 감정별 시각화
+## 📂 Project Structure
 
-| 감정 | 색상 | 효과 |
-|------|------|------|
-| Neutral | 시안 | 부드러운 호흡 |
-| Happy | 노란색 | 반짝임 |
-| Excited | 주황색 | 진동 + 확장 |
-| Sad | 파란색 | 하강 |
-| Angry | 빨간색 | 불규칙 진동 |
-| Thinking | 보라색 | 궤도 운동 |
-| Calm | 연두색 | 느린 호흡 |
-
-## 📡 API
-
-| 엔드포인트 | 메서드 | 설명 |
-|-----------|--------|------|
-| `/api/health` | GET | 서버 상태 확인 |
-| `/api/analyze` | POST | 음성 분석 (multipart/form-data) |
-
-## 🔧 트러블슈팅
-
-| 문제 | 해결 |
-|------|------|
-| 마이크 안 됨 | 브라우저 설정 > 사이트 권한 > 마이크 허용 |
-| Whisper 에러 | `pip install openai-whisper` 재설치 |
-| Ollama 연결 실패 | `ollama serve` 실행 확인 |
-| ffmpeg 에러 | [ffmpeg 다운로드](https://ffmpeg.org/download.html) 후 PATH에 추가 |
-
-## 🧪 테스트
-
-전체 파이프라인(오디오 → STT → 감정분석) 자동 테스트:
-
-```batch
-# 백엔드 서버가 실행 중이어야 합니다
-python tests/test_pipeline.py
 ```
+AGI_human_interface/
+├── backend/              # Flask Server & AI Logic
+│   ├── app.py            # Main Entry Point
+│   ├── emotion_analysis.py
+│   └── ...
+├── frontend/             # React Client
+│   ├── src/
+│   │   ├── modules/      # Three.js Visualizer, Particle System
+│   │   ├── main.ts       # App Controller
+│   │   └── ...
+│   └── public/assets/    # 3D Models (.gltf)
+├── start.bat             # One-click launcher
+└── README.md
+```
+
+## 📜 License
+
+MIT License - feel free to use and modify for your own projects.
